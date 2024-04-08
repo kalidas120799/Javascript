@@ -49,3 +49,11 @@ hasOwnProperty =>  Checks if a property exists directly on the object
 entries => It returns an array containing the [key, value] pairs
 keys, values => To get all keys/values of the object in the array format.
 freeze, isFrozen => To prevent adding or updating object properties
+
+__proto__
+--------
+is used for accessing an object's prototype directly
+
+Prototype
+------------
+All the function constructors have prototype properties. Used to reduce memory wastage

@@ -70,3 +70,23 @@ libraries and frameworks
 --------------
 Libraries => react, jQuery, Pandas, 
 Frameworks => Angular, Vue, express JS, Django, Flask
+
+JavaScript vs TypeScript
+-----------------
+Aspect | JavaScript | TypeScript
+Language Type | Dynamically typed | Statically typed
+Type System | no build in type check | Built-in static type checking
+Extension | .js | .ts
+Tooling Support | less tool support | Strong tooling support IntelliSense, code navigation, error checking
+Code Readability | less readable cod | Enhanced code readability with type annotations
+Development Speed | more time for debugging | Faster development process
+
+React.js vs Node.js
+----------------
+Aspect | react | node
+Purpose | Frontend | backend
+Type | library | runtime environment
+Main Features | Component-based architecture, Virtual DOM, JSX | Asynchronous I/O, Event-driven architecture, CommonJS modules
+Execution | browser | server
+Frameworks | next.js | express.js
+HTTP Server | not handle HTTP req | create HTTP req

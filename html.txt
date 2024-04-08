@@ -105,3 +105,10 @@ The Browser Object Model (BOM) in JavaScript refers to the objects provided by t
 window => history, location, open ,navigator, screen, alert, confirm
 history => length, back, forward, go
 Navigator
+
+element
+---------
+an element is a fundamental building block of a web page,
+representing different types of content or functionality. Each element is defined by an opening tag, content, and a closing tag
+
+Eg : <div></div>

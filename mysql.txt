@@ -1,0 +1,40 @@
+MySQL is a widely used open-source relational database management system 
+
+Database Management System (DBMS) => A DBMS is a software application that allows you to organize, store, and retrieve data in a structured way
+Relational Database =>  data is stored in separate tables related to each other
+MySQL uses SQL (Structured Query Language), a standardized language for interacting with relational databases. This allows you to easily add, access, update, and delete data using commands
+
+MySQL clustering
+--------------
+refers to the practice of using multiple MySQL servers to distribute the workload and provide high 
+availability and scalability for database applications.
+
+MySQL Replication
+----------
+data is replicated from a primary (master) MySQL server to one or more secondary (slave) servers
+
+MySQL Router
+-----------
+MySQL Router is a lightweight middleware component that provides transparent routing between client applications and a MySQL Cluster
+
+SELECT statement in MySQL?
+---------------
+The SELECT statement is used to retrieve data from one or more tables in a MySQL database
+
+normalization?
+-------------
+Normalization is the process of organizing a relational database's structure to reduce data redundancy, 
+improve data integrity, and optimize its performance
+
+MySQL data types
+-----------
+Numeric Types => INT, BIGINT, FLOAT, DECIMAL, DOUBLE
+String Data Types => CHAR(M), VARCHAR(M), TEXT(65535), BINARY, BLOB(65535)
+Date and Time Data Types => DATE, TIME, DATETIME, TIMESTAMP
+Other Data Types => ENUM(value1,value2), SET(value1,value2), BOOLEAN
+
+integer data types
+-----------------
+TINYINT => 1 byte signed(-128 to 127), unsigned(0 to 255)
+SMALLINT => 2 byte signed( -32768 to 32767), unsigned(0 to 65535 )
+BIGINT => 8 byte signed(-9223372036854775808 to 9223372036854775807), unsigned( 0 to 18446744073709551615 )

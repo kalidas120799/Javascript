@@ -201,3 +201,71 @@ Payload => user ID, username, roles, permissions, expiration time, and more.
 
 Access Token => It's used in front-end for fetching response expiry with in 7 days
 Refresh Token => It’s expiry with in 90 days and refresh token use to create anther access token
+
+microservices
+----------
+microservices refer to an architectural approach for building applications as a collection of small, independent services
+Each service focuses on a specific services
+
+MVC (Model-View-Controller)
+----------------
+is a popular architectural pattern used in Node.js development for structuring web applications
+
+Model => This component represents the data and business logic of your application.
+View => This component deals with the user interface (UI) representation of your application
+Controller => This component acts as the intermediary between the model and the view.
+
+Code Reusability and Testability
+
+functions vs middleware
+---------------
+features | functions | middleware
+Purpose | Reusable block of code performing a specific task | Intercepts requests and responses in the application flow
+Arguments | any arguments | req,res,next
+Return Value | any value | modified req,res
+Scope | called from anywhere | Executed in a chain during request processing
+usages | calculations, logic execution | Authentication, authorization, logging, error handling
+Reusability | Highly reusable across different parts | Designed for specific middleware tasks
+
+body parser
+----------
+is a middleware that simplifies handling incoming HTTP request bodies
+
+Simplified Data Access, Format Handling, improved Developer Experience
+
+Cron
+--------
+Cron, in the context of Node.js, refers to scheduling tasks to run at specific intervals.
+It's not a built-in functionality of Node.js
+
+every minutes => * * * * * (minutes hour day month week)
+every 2 minutes => */2 * * * *
+
+CORS (Cross-Origin Resource Sharing)
+----------------
+is a mechanism that restricts web browsers from making requests to a different domain 
+
+node red?
+----------
+Node red is a visual programming tool for Node.js that is used to wire 
+hardware devices and online services as part of IoT applications.
+
+Redis
+------
+Redis is an open-source, in-memory data structure store that can be used as a database, cache, and message broker.
+it is commonly referred to as a data structure server
+
+Session Storage, Queueing, Caching, Pub/Sub Messaging
+
+Query Parameters (req.query)
+----------
+Query parameters are key-value pairs appended to the end of a URL after a question mark 
+
+Route Parameters (req.params)
+-----------
+Route parameters are dynamic parts of the URL path specified using placeholders in the route definition
+
+Request Body (req.body)
+--------------
+The request body contains data sent by the client as part of an HTTP request
+data form are JSON and form data

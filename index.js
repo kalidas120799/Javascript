@@ -87,3 +87,21 @@ console.log(Math.floor(1994 / 1000)) // 1
 console.log(Math.floor((1994 % 1000) / 100)) // 9
 console.log(Math.floor((1994 % 100) / 10)) // 9
 console.log(1994 % 10) // 4
+
+// sort using loop
+function sort(data) {
+    let arr = [...data]
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] > arr[i + 1]) {
+            let temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
+            i = -1
+        }
+    }
+    return arr;
+}
+
+console.log(sort([0, 1, 4, 3, 2, 4]));
+
+console.log([0, 1, 4, 3, 2, 4].join("")); // "014324"

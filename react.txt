@@ -1,1 +1,390 @@
-react
+React is an open-source JavaScript library primarily used for building user interfaces, especially for single-page applications
+
+Virtual DOM
+---------
+React uses a virtual DOM to efficiently update the actual DOM. This improves performance by minimizing the number of direct manipulations to the DOM
+
+Original DOM vs Virtual DOM
+--------------------
+Aspect | Original DOM | Virtual DOM
+Definition | it's actual DOM | copy of the Original DOM
+Presence | Exists in the browser | Exists only in memory as a JavaScript 
+Rendering | Full re-renders | partial re-renders
+Memory Consumption | Consumes memory from browser | Consumes memory from JavaScript
+
+Shadow DOM
+--------------
+The Shadow DOM is a browser technology designed primarily for scoping variables and CSS in web components
+
+Component-based architecture
+-------------
+React follows a component-based architecture, allowing developers to build complex UIs by composing small, reusable components
+
+One-way data flow
+-----------
+React promotes a unidirectional data flow, which makes it easier to understand
+
+Server-side rendering
+
+What is JSX?
+----------
+JSX (JavaScript XML) is a syntax extension for JavaScript that allows developers to write HTML-like code within JavaScript.
+It's commonly used with React to describe the structure of UI components in a more intuitive and declarative way.
+
+component
+----------
+a component is a reusable piece of code that encapsulates a specific piece of UI functionality.
+Components can be thought of as custom HTML elements that you can use to build the UI of your application.
+
+Functional Components
+---------------
+These are JavaScript functions 
+It take in props as arguments and return React elements 
+Functional components are simpler and more lightweight compared to class components
+
+Class Components
+----------
+These are ES6 classes that extend the React.Component class
+lass components have additional features such as state management and lifecycle methods
+
+Higher-Order Components
+---------------
+These are functions that take a component as an argument and return a new component with enhanced functionality
+used for code reuse, logic abstraction and data fetching
+
+Hooks-based Components
+-----------------
+functional components can now have state and use lifecycle methods using Hooks like useState, useEffect, useContext, etc. 
+
+Pure Components
+-------------
+These are similar to functional components but come with performance optimizations under the hood
+
+Element vs components
+------------
+Aspect | Element | components
+Definition | Basic building blocks of HTML | Reusable pieces of UI functionality
+Usage | Used to define specific content or behavior | Used to compose UI elements and functionality
+Reusability | Cannot | can
+Lifecycle | N/A | May have lifecycle methods
+state | N/A | Can have local state 
+
+class vs functional components
+--------------------
+Aspect | Class Component | Functional Component
+Syntax |  ES6 class syntax | using JavaScript function
+State Management | Can have local state and use lifecycle | Initially stateless, but can use Hooks for state management and lifecycle features
+Lifecycle Methods | Can use lifecycle methods | Cannot directly use lifecycle methods 
+this Keyword | Uses the 'this' keyword to access class properties and methods | Doesn't use 'this' keyword, props passed
+
+State in react
+--------------
+State is a built-in object within React components that represents data within a component.
+It is mutable and can be updated
+State is managed internally by the component and can only be accessed and modified within the component itself.
+Class components use the this.state and functional components use Hooks like useState() 
+
+setState() is a method provided by React components for updating their internal state
+this.setState({ count: this.state.count + 1 });
+this.setState((prevState) => ({ count: prevState.count + 1 }));
+
+Props (properties) in react
+------------
+Props are inputs to a React component. They are passed down from a parent component to a child component
+Props are immutable and cannot be changed by the child component
+Props are similar to function arguments in JavaScript
+Both functional and class components receive props as the first argument
+
+Why should we not update the state directly?
+-----------------
+If you try to update the state directly then it won't re-render the component.
+
+bind
+---------
+the bind() method is typically used in class components to bind the value of this to a particular method within the component's class
+This is necessary because in JavaScript, the value of this is determined by how a function is called.
+
+Arrow functions in class
+----------------
+Arrow functions automatically bind this to the surrounding context
+Using arrow functions or class properties can simplify code and reduce the need for explicit binding in React components.
+
+synthetic events in React?
+------------
+synthetic events are a cross-browser wrapper around the browser's native events
+It's  efficient way to handle the events
+
+stopPropagation() and preventDefault() 
+
+inline conditional expressions?
+--------------------
+if statements or ternary expressions
+
+What is "key"?
+----------
+Key prop helps React identify which items have changed, are added, or are removed.
+Keys should be unique among its siblings
+
+refs?
+---------
+ref is used to return a reference to the element
+it's useful when you need a direct access to the DOM element 
+React.createRef()
+
+forward refs?
+-----------
+Ref forwarding is a feature that lets some components take a ref they receive like props
+pass it further down to a child
+
+const ButtonElement = React.forwardRef((props, ref) => (
+  <button ref={ref} className="CustomButton">
+    {props.children}
+  </button>
+));
+
+React Fiber?
+-------------
+Fiber is the new reimplementation of core algorithm in React v16
+The goal of React Fiber is to increase its suitability for areas like animation, layout, gestures, ability to pause, abort
+
+Controlled Components
+----------------
+form data is handled by React. The value of the form element is controlled by React state
+and any changes to the input value are handled by updating the state
+
+Uncontrolled Components
+------------------
+form data is handled by the DOM itself. The value of the form element is not controlled by React state
+directly accessed from the DOM using a ref
+
+Lifting State Up in React
+------------------
+Lifting state up is a pattern in React where you move the state from multiple components into a common ancestor component
+you centralize the state management in a higher-level component and pass down the state
+
+phases of component lifecycle?
+--------------
+Mounting => The component is ready to mount in the browser DOM.
+constructor -> render -> componentDidMount
+
+Updating => the component gets updated in two ways, sending the new props and updating the state
+render -> componentDidUpdate
+
+Unmounting => component unmounted from the browser DOM
+componentWillUnmount
+
+componentDidCatch (Error Handling)
+
+lifecycle methods of React?
+--------------
+componentWillMount(),componentDidMount(),componentWillReceiveProps(),componentWillUpdate()
+componentDidUpdate(prevProps, prevState),componentWillUnmount(),componentDidCatch(error,info)
+
+context
+---------
+is a feature that allows you to share data between components without having to pass props manually through each level of the component tre
+
+Create a Context -> Provide Context Data -> Consume Context Data
+React.createContext
+
+children prop?
+---------
+Children is a prop that allows you to pass components as data to other components, just like any other prop you use
+
+reconciliation
+------------
+is the process through which React updates the Browser DOM and makes React work faster. for component update React use a diffing algorithm 
+React would first calculate the difference between the real DOM and the copy of DOM (Virtual DOM) when there's an update of components
+
+React uses className over class attribute?
+--------------------
+class is a reserved keyword in JavaScript
+
+React fragments?
+--------------
+It's a common pattern in React for a component to return multiple elements
+Fragments let you group a list of children without adding extra nodes to the DOM
+
+<React.Fragment></React.Fragment> or <></>
+
+portals in React?
+--------------
+Portal is a recommended way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+
+ReactDOM.createPortal(child, container)
+
+Stateless components
+--------------
+Is also known as functional components, are React components that do not have any internal state
+
+Stateful components
+------------
+Is also known as class components, are React components that have internal state and lifecycle methods
+
+Prop Types?
+--------------
+PropTypes is a mechanism in React for typechecking props passed to components
+
+PropTypes.string, PropTypes.number, PropTypes.bool, PropTypes.array, PropTypes.object, PropTypes.func
+PropTypes.node, PropTypes.element, PropTypes.shape({ name: PropTypes.string, age: PropTypes.number })
+
+render method 
+--------------
+This method is used to render a React element into the DOM in the supplied container and return a reference to the component
+
+memoize a component?
+------------
+There are memoize libraries(moize) available which can be used on function components.
+
+React.memo @ v16+ => It provides a higher order component which memoizes component unless the props change
+
+CRA (create-react-app) and its benefits?
+-------------
+CLI tool allows you to quickly create & run React applications with no configuration step
+
+It's support React, JSX, ES6 / Autoprefixed CSS / A fast interactive unit test
+
+switching component?
+-------------
+A switching component is a component that renders one of many components. We need to use object to map prop values to components.
+
+const PAGES = {
+  home: HomePage,
+  about: AboutPage,
+  services: ServicesPage,
+  contact: ContactPage,
+};
+
+Why should component names start with capital letter?
+-----------------------
+If you are rendering your component using JSX the name must be capital letter. because HTML element and SVG tags
+is lower case
+
+render props?
+-------------
+Render Props is a simple technique for sharing code between components using a prop whose value is a function
+
+DataProvider render={(data) => <h1>{`Hello ${data.target}`}</h1>} />
+
+React Hooks
+---------------
+React Hooks are functions that enable functional components to use state, lifecycle methods
+
+built-in Hooks
+------------
+useState => used for managing state
+useEffect => Allows functional components to perform side effects such as data fetching after rendering
+useContext =>  functional components to consume context
+useReducer => more powerful alternative to useState(), used for complex state logic
+useRef => used for access react DOM or react element
+useCallback => Memoizes functions to prevent unnecessary re-renders
+useMemo =>  Memoizes values to optimize performance
+
+useCallback vs useMemo
+-------------
+Aspect | useCallback | useMemo
+Purpose | prevent unnecessary re-renders | for optimize performance
+Parameters | callback function as the first parameter | Takes a function and an array of dependencies
+Return Value | the callback function | return a value
+Use Cases | event handle or callback | calculations
+
+lifecycle using react Hooks
+--------------
+const [state, setState] = useState(0); // state declaration
+
+// useEffect to simulate componentDidMount
+useEffect(() => {
+  console.log('Component did mount');
+}, []);
+
+// useEffect to simulate componentDidUpdate
+useEffect(() => {
+  console.log('Component did mount');
+}, [state]);
+
+// Cleanup function to simulate componentWillUnmount
+useEffect(() => {
+  return () => {
+    console.log('Component will unmount');
+  };
+}, []);
+
+flux?
+----------
+It is not a framework or a library but a new kind of architecture and Unidirectional Data Flow
+
+action -> dispatch -> store -> view -> action -> dispatch
+
+Redux
+--------
+Redux is an open-source JavaScript library for managing the state of an application
+Redux follows the principles of Flux architecture. store, actions, and reducers
+
+Store => it's holds the entire state of the application
+Actions => Actions are plain JavaScript objects that represent events or user interactions that occur in the application
+Reducers => Reducers are pure functions that specify how the application's state should change in response to actions
+
+state is read-only and can only be modified by pure functions, and changes are made with pure functions called reducers
+
+React vs React Redux
+---------------
+Aspect | react | react redux
+Purpose | Frontend | managing application state
+Core Concept | Component-based architecture | Flux architecture 
+State | local state management | Centralized state management
+Component state | Manages local state within individual components | State is centralized in Redux store
+
+React Context vs React Redux
+--------------------
+React Context is a feature that allows you to pass data through the component
+React Redux is a library that provides a state container
+
+share data between components at different nesting levels without the need for prop drilling
+It is an implementation of the Flux architecture pattern, store, actions, and reducers
+
+used for providing theme, localization, or authentication 
+designed for managing more complex application state
+
+Context does not provide reducers, middleware
+Redux provides advanced features like middleware and dev tool
+
+Prop drilling / component drilling
+----------------
+refers to the process of passing props down from a parent component to nested child components
+It can also lead to performance issues if props are being passed down unnecessarily
+for over come this issue use techniques like React Context or redux
+
+React Router?
+-------------
+React Router is a popular routing library for React applications. 
+It enables navigation and routing functionalities in single-page applications
+
+BrowserRouter
+------------
+It's Provides routing functionality using the HTML5 history API
+
+<Link> and <NavLink> 
+---------
+are used for navigating between routes in a React application
+NavLink also provides additional styling capabilities for the active route
+
+<Route> and <Switch>
+-----------------
+route is used to define a mapping between a URL path and a React component to render
+Switch  is used to render the first child 
+
+
+call => The call effect is used to call functions and asynchronous tasks inside Generator functions.
+put => The put effect is used to dispatch Redux actions from within Generator functions.
+take => The take effect is used to wait for a specific Redux action to be dispatched before proceeding 
+yield => The yield keyword is used within Generator functions to pause execution and return a value to the caller.
+takeEvery => creates a new task for every matching action dispatched
+takeLatest => only allows the latest instance of the action to be processed
+
+Redux Thunk vs Redux Saga
+--------------
+Aspect | Redux Thunk | Redux Saga
+Middleware | Function-based middleware | Middleware library based 
+Type | Synchronous action | Generator functions 
+Use Case | Simple asynchronous | Complex asynchronous
+Scalability | smaller projects | large-scale projects
