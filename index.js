@@ -76,3 +76,14 @@ for (const item of [1, 2, 3, 4]) {
     console.log(item) // 2,3
     if(item===3) break
 }
+
+const arr=[]
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i], arr[i + 1]);
+    i++
+}
+
+console.log(Math.floor(1994 / 1000)) // 1
+console.log(Math.floor((1994 % 1000) / 100)) // 9
+console.log(Math.floor((1994 % 100) / 10)) // 9
+console.log(1994 % 10) // 4
