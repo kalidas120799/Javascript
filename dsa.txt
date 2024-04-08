@@ -1,0 +1,167 @@
+Data Structures
+------------
+DSA stands for Data Structures and Algorithms. Data structures are ways of organizing and storing data 
+effectively, while algorithms are step-by-step procedures for solving problems or performing tasks.
+
+Reason for using DSA
+-----------------
+Efficiency,Scalability,Problem Solving,Code Reusability
+
+Built-in DSA:
+-------------
+Array
+---------
+An array is a linear data structure consisting of a collection of elements, each identified by at least one array index or key
+used to store and manipulate collections of data elements such as numbers or strings
+
+Object
+---------
+an object is a collection of key-value pairs where each key is unique
+used for storing and organizing complex data
+
+String
+------
+A string is a sequence of characters. strings are often treated as immutable data structures, meaning their contents cannot be modified once created
+used for text manipulation tasks such as searching, sorting, and pattern matching
+
+Set
+----
+A set is a collection of distinct elements with no duplicate values
+used to efficiently store and manage unique elements
+
+Map
+-----
+is a collection of key-value pairs where each key is unique
+used for tasks like storing and retrieving data with unique identifiers
+
+Custom DSA
+----------
+Linked List
+-------------
+A linked list is a custom data structure where each element (node) contains a value and a reference to the next element in the sequence
+singly linked, doubly linked
+
+Stack
+----------
+A stack is a custom data structure that follows the Last In, First Out (LIFO) principle
+It supports operations like push, pop and peek ( view to element)
+
+Queue
+-----
+A queue is a custom data structure that follows the First In, First Out (FIFO) principle
+
+stack vs queue
+--------------
+Feature | stack | queue
+Definition | LIFO | FIFO
+Insertion | Adds and remove an element to the top | Adds an element to the rear and removes front element of the queue
+Removal | last element | first element 
+
+Binary Tree
+----------
+A binary tree is a hierarchical data structure where each node has at most two children, referred to as the left child and the right child
+used for tasks like binary search, sorting
+
+Sorting algorithms
+-------------------
+used to arrange elements of a list or array in a specific order, typically ascending or descending
+
+Bubble Sort
+---------------
+Compares adjacent elements and swaps them if they are in the wrong order. It repeats this process until the list is sorted.
+
+Selection Sort
+----------------
+Divides the input list into two parts: a sorted sublist and an unsorted sublist. 
+It repeatedly selects the smallest (or largest) element from the unsorted sublist and moves it to the sorted sublist.
+
+Insertion Sort
+----------------
+Builds the sorted list one element at a time by repeatedly removing elements from the unsorted part of the list and inserting them into their correct position in the sorted part.
+
+Merge Sort
+-----------
+Divides the input list into smaller sublists, sorts each sublist recursively, and then merges the sorted sublists back together to produce the final sorted list.
+
+Quick Sort
+-------------
+Chooses a pivot element and partitions the list into two sublists such that elements less than the pivot are on the left and elements greater than the pivot are on the right. It then recursively sorts the sublists.
+
+Searching algorithms
+-------------------
+are used to find a specific target element within a collection of elements, such as an array or a list
+
+Linear Search
+-------------
+It sequentially checks each element of the list until it finds the target element or reaches the end of the list.
+
+function linearSearch(arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === target) {
+            return i; // Return index if target is found
+        }
+    }
+    return -1; // Return -1 if target is not found
+}
+
+Binary Search
+---------------
+It requires the list to be sorted. works by repeatedly dividing in half
+It compares the target value with the middle element of the list and continues the search in the lower or upper half, depending on the comparison result
+
+function binarySearch(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (arr[mid] === target) {
+            return mid; // Return index if target is found
+        } else if (arr[mid] < target) {
+            left = mid + 1; // Search the right half
+        } else {
+            right = mid - 1; // Search the left half
+        }
+    }
+
+    return -1; // Return -1 if target is not found
+}
+
+
+Time and Space Complexities
+------------------
+Constant Time (O(1))
+---------
+The time taken by the algorithm remains constant
+
+function constantTimeExample(arr) {
+    let x = 5; // Constant space allocation
+    let y = 10; // Constant space allocation
+    return x + y;
+}
+
+Linear Time (O(n))
+--------------
+The time taken by the algorithm increases linearly 
+
+function linearTimeExample(arr) {
+     let arr = [];
+    for (let i = 0; i < arr.length; i++) {
+         arr.push(i); 
+    }
+}
+
+Logarithmic Time (O(log n))
+---------------
+binarySearch
+
+Quadratic Time (O(n^2))
+--------------
+function quadraticTimeExample(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+            console.log(arr[i], arr[j]); 
+        }
+    }
+}

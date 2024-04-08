@@ -1,0 +1,72 @@
+TypeScript
+-------------
+It is a superset of JavaScript, which means that any valid JavaScript code is also valid TypeScript code
+TypeScript adds optional static typing and other features that enhance JavaScript's capabilities
+
+Static Typing => TypeScript allows developers to specify types for variables, function parameters, return types, and more
+Interfaces and Classes =>  TypeScript supports interfaces and classes, allowing developers to define custom data types and OOPS principles
+Enums =>  to define a set of named constants with numeric or string values
+Generics =>  to write reusable code components that work with a variety of data types
+Advanced JavaScript Features =>  TypeScript supports modern JavaScript features such as async/await, destructuring, arrow functions, and modules
+Compatibility => it is fully compatible with existing JavaScript libraries, frameworks, and tooling
+
+union
+-------
+a union type allows a variable, parameter, or property to accept values of multiple types
+Union types are defined using the | (pipe) 
+
+let myVar: number | string;
+
+classes
+----------
+classes provide a way to define blueprints for creating objects with properties and methods
+
+Interface
+---------
+an interface is a way to define the shape or structure of an object
+
+interface Person {
+    name: string;
+    age: number;
+    greet: () => void;
+}
+
+Decorators
+-----------
+Decorators are a feature of TypeScript that allows you to attach metadata to classes, methods, properties, or parameters
+
+Types => class, method, property and parameter Decorators
+
+Elasticsearch
+---------------
+It is designed for horizontally scalable, real-time search and analysis of large volumes of data
+used for a variety of use cases, including full-text search, log and event data analysis, real-time analytics, and application monitoring
+
+Distributed Architecture => allowing it to scale horizontally by adding more nodes to a cluster
+Near Real-Time Search => It provides near real-time search capabilities, meaning that documents are indexed and made searchable within milliseconds
+Full-Text Search =>  supports full-text search, allowing users to search for documents based on the content of their fields
+Rich Query DSL => It provides a powerful Query DSL (Domain-Specific Language) for constructing complex search queries.
+
+MySQL vs Elasticsearch
+-----------------
+Feature | MySQL | Elasticsearch
+Data Storage | Relational database storing tables in rows and columns | Distributed search engine storing  JSON documents
+Query | SQL | DSL
+Data Model | Relational (rows and columns) | NoSQL (JSON structure)
+Indexing | supports | build in
+Scalability | Vertical (scaling server) | Horizontal (adding more node)
+
+Single-Threaded Languages
+------------------
+Execute instructions one at a time.
+JavaScript, PHP, Python, Ruby
+
+Multi-Threaded Languages
+---------------
+Can manage multiple threads of execution concurrently, potentially improving performance for CPU-bound tasks
+Java, C#, C++, Go, Rust
+
+libraries and frameworks 
+--------------
+Libraries => react, jQuery, Pandas, 
+Frameworks => Angular, Vue, express JS, Django, Flask

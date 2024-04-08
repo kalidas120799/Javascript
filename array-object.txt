@@ -1,0 +1,51 @@
+shallow copy
+----------
+if modify data it's affect source data
+const newArr = arr
+newArr.splice(1, 2)
+console.log(newArr, arr)
+
+deep copy
+--------
+if modify data it's not affect source data
+const newArr1 = [...arr]
+const newArr2 = Array.from(arr);
+
+array methods
+---------------
+
+forEach => get each element from array
+map =>  creates a new array with the results of calling
+filter => filter elements based on a condition
+reduce => accumulate a single value from the elements
+concat, slice => Create new arrays by merging or extracting portions
+splice => Modifies the original array by adding/removing elements at specific positions
+sort =>  Sorts the array elements in place (asc or desc)
+push, pop => Add/remove elements from the end of the Array
+shift, unshift => Add/remove elements from the beginning of the array
+find, findIndex => To find an (index) element satisfying the condition
+includes => Returns a boolean value if the array contains the specific element
+
+slice vs splice
+-------------
+Feature | slice | splice
+Purpose | create new array | Modifies original array 
+Modifies original array | no | yes
+
+const fruits = ["apple", "banana", "orange", "mango", "kiwi"];
+const subArray = fruits.slice(1, 3);
+console.log(fruits); // ["apple", "banana", "orange", "mango", "kiwi"]
+console.log(subArray); // ["banana", "orange"]
+
+fruits.splice(2, 1, "grapefruit"); // removed orange and added grapefruit
+console.log(fruits); // ["apple", "banana", "grapefruit", "mango", "kiwi"]
+console.log(subArray); // ["banana", "orange"]
+
+object methods
+------------
+assign => To copy properties and their values from one object to another object
+create => To create a new object using an existing object as prototype
+hasOwnProperty =>  Checks if a property exists directly on the object
+entries => It returns an array containing the [key, value] pairs
+keys, values => To get all keys/values of the object in the array format.
+freeze, isFrozen => To prevent adding or updating object properties

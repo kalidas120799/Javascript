@@ -1,0 +1,183 @@
+JavaScript
+------------
+is a widely used programming language primarily known for its role in web development
+
+Pros
+---------
+Versatility => can be used for both front-end and back-end development
+Interactivity =>  you can create highly interactive and dynamic web pages
+Large Ecosystem , Cross-platform Compatibility
+
+Cons
+--------
+Performance =>  it may not match the performance of languages like C++ or Java, especially in CPU-intensive tasks
+Single-threaded Nature =>  it can only execute one task at a time in a given process.
+
+Reserved Keywords
+---------------
+The reserved keywords in JavaScript are predefined keywords
+Eg : var, let, function
+
+Javascript Variables
+-------------
+A variable is a “named storage” for data.
+
+var vs let vs const
+-------------------
+Feature | var | let | const
+scope | function or global scope | block scope | block scope
+Hosting | Hosted | not Hosting | not Hosting
+Reassignment | Allowed | Allowed | Not allowed
+Redeclaration | Allowed | not allowed | not allowed
+
+Hoisting
+-------------
+is a JavaScript mechanism where variables and function declarations are moved to the top of their containing scope
+
+Variable Hoisting
+--------------
+console.log(x); // Output: undefined
+var x = 10;
+
+var x;
+console.log(x); // Output: undefined
+x = 10;
+
+Function Hoisting:
+-----------
+greet(); // Output: Hello!
+function greet() {
+    console.log("Hello!");
+}
+greet(); // Output: Hello!
+
+Let and Const:
+-------------
+console.log(x); // ReferenceError: Cannot access 'x' before initialization
+let x = 10;
+
+variable scope
+----------
+scope refers to the visibility of a variable or how it can be used after it is declared
+Block, function and global scope
+
+Type casting
+------------
+Type casting in JavaScript refers to the process of converting a value from one data type to another.
+
+Implicit Type => 10 + "20" = "1020" / (10=="10") = true
+Explicit Type => Number("10") = 10 / String(10) = "10" / parseInt("10") = 10 / parseFloat("10.5") = 10.5
+
+Datatypes
+------------
+Data type refers to the type of data that a JavaScript variable can hold
+
+Primitive Data Types => numbers, strings, boolean, null, undefined, symbol, bigint
+Non Primitive/Reference Data Types => Object, array, function, date, regex
+
+Object
+------
+An object is a collection of key-value pairs where each key is a string (or symbol) and each value can be any data type
+
+const object={"name":"kalidas","age":25}
+
+Indexed collections ( the collections of data that are ordered by an index value eg: array)
+--------------
+array 
+-----
+An array is an ordered collection of elements
+
+const arr=["kalidas",25]
+
+JSON (Structured data)
+-----
+is a lightweight data interchange format that is easy for humans to read and write
+
+Object vs JSON 
+----------------
+Feature | Object | JSON
+Definition | collection of key-value pairs |  is a lightweight data interchange format
+Syntax | {} | is text-based similar to object
+key | string/symbol | string
+values | any data type | any data type
+
+objects are native to JavaScript and are used within programs 
+JSON is a text-based format used primarily for data interchange between systems
+
+Expressions and Operators 
+--------------
+Expressions are combinations of values, variables, and operators that produce a result
+Operators are used to perform operations on values or variables
+
+Arithmetic Operators => +,-,*,/,%
+Assignment Operators => let x = 10; x += 5; // Equivalent to: x = x + 5;
+Comparison Operators => >,<,===,!==
+Logical Operators => &&,||,!
+Unary Operator => console.log(-x);
+Conditional (Ternary) Operator => condition ? value1 : value2;
+yield operator =>  is used to pause and resume the generator function asynchronously
+
+JavaScript Events
+------------
+JavaScript's interaction with HTML is handled through events that occur when the user or the browser manipulates a page
+
+MouseEvent, InputEvent, KeyboardEvent, AnimationEvent, ClipboardEvent, DragEvent, FocusEvent
+
+Asynchronous Javascript
+-----------------
+Asynchronous JavaScript refers to the ability of JavaScript to execute code non-sequentially, allowing tasks to be performed concurrently without blocking the execution of other code
+Used for etching data from servers, reading files, or waiting for user input
+
+Callbacks
+----------
+Callbacks are functions passed as arguments to other functions, to be executed later when an asynchronous operation completes.
+
+setTimeout(function() {
+    console.log("Timeout completed");
+}, 1000);
+
+Callback Hell
+--------------
+multiple nested callback functions are used to handle asynchronous operations
+
+asyncFunction1(function(result1) {
+    asyncFunction2(result1, function(result2) {
+        asyncFunction3(result2, function(result3) {
+            asyncFunction4(result3, function(result4) {
+                // Do something with result4
+            });
+        });
+    });
+});
+
+Promises
+------------
+Promises are objects that represent the eventual completion or failure of an asynchronous operation and its resulting value
+They provide a cleaner and more structured way to handle asynchronous code compared to callbacks.
+
+const fetchData = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Data fetched successfully");
+    }, 1000);
+});
+
+fetchData.then((data) => {
+    console.log(data);
+}).catch((error) => {
+    console.error(error);
+});
+
+Async/Await
+--------------
+making asynchronous code look and behave more like synchronous code
+They allow you to write asynchronous code in a more sequential and readable manner.
+
+async function fetchData() {
+    try {
+        const response = await fetch('https://api.example.com/data');
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error(error);
+    }
+}

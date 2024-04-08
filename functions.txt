@@ -1,0 +1,212 @@
+Function
+---------
+A function is a reusable block of code that performs a specific task when called
+
+function fn_name(){console.log("hello....")}
+
+Function Declaration
+-----------
+A function declaration defines a named function using the function keyword.
+
+function fn_name(){console.log("hello....")}
+
+Anonymous Function
+--------
+An anonymous function is a function without a name, used as a callback
+
+setTimeout(function() {
+    console.log("Delayed message");
+}, 1000);
+
+First Class Functions
+-------------
+It's meaning they can be passed as arguments to other functions, returned from functions, and assigned to variables
+
+function greet() { return "Hello!";}
+const sayHello = greet;
+
+IIFE (Immediately Invoked Function Expression)
+---------------
+(function() {
+    console.log("I'm invoked immediately");
+})();
+
+Params vs Arguments
+-----------------
+Parameters are variables declared in a function's definition
+Arguments are the values passed to a function when it is called
+
+function greet(name) { // 'name' is a parameter
+    return "Hello, " + name + "!";
+}
+greet("John"); 
+
+Arrow Functions
+-----------
+Arrow Function is a new way of creating functions with the ’=>’ operator with a shorter syntax.
+arrow fun not binding this keyword
+
+const fn_name=()=>{};
+
+Arrow function vs Normal Function
+---------------
+Feature | Arrow Function | Normal Function
+Syntax | => | function
+Constructor | Cannot be used as constructors  | Can be used as constructors 
+binding super | Does not have its own super binding | Has its own super binding
+Method Definition | no implicit this keyword | has implicit this keyword
+arguments | Does not have its own arguments | Has its own arguments object
+
+high order function (HOF)
+---------------
+HOF is a function, it's take one or more fn as argument and it may return fn
+EG: map, filter, reduce are HOF's
+
+function returnFn() {
+    return function () {
+        console.log("inner fn")
+    }
+}
+
+const fn = returnFn();
+fn();
+
+pure function
+----------
+is a fn it's produce same output as a input
+
+function welcome(name) {
+    console.log(`Hi ${name}`) // string output
+}
+welcome("kalidas"); // string input
+
+im pure function
+--------------
+is a fn it's not produce same output as a input
+
+function stack/ call stack
+--------------
+call stack refers to a data structure used by the JavaScript runtime to manage the execution of function calls
+Each time a function is called, a new frame  is added to the top of the call stack
+The call stack operates on a Last In, First Out (LIFO) basis, meaning that the most recently added function call is the first to be executed and removed.
+Eg: Closures and Recursion
+
+Closures
+---------
+A closure is a function it access to variables and parameters of its outer function even 
+after the outer function finished
+or nested function is a closure
+
+function outer(x) {
+    function inner(y) {
+        return x + y
+    }
+    return inner;
+}
+
+const outerFn = outer(10);
+console.log(outerFn(5)) // 10
+
+callback function
+-----------
+A callback function in JavaScript is a function that is passed as an argument to 
+another function and is executed after some asynchronous operation.
+Callback functions are commonly used in event handling, AJAX requests, 
+and asynchronous programming
+
+function doSomethingAsync(callback) {
+    setTimeout(function () {
+        console.log("Async operation completed");
+        callback();
+    }, 2000);
+}
+
+function callbackFunction() {
+    console.log("Callback function executed");
+}
+
+doSomethingAsync(callbackFunction);
+
+Recursion
+-----------
+Recursion is a programming technique where a function calls itself to solve a problem with base condition
+
+function fetchWater(count){
+    if(count===0){
+        console.log("no more water")
+        return 
+    }
+    console.log("fetching water...")
+    fetchWater(count-1)
+}
+fetchWater(4);
+
+Built-in Functions
+------------
+Number => toFixed(), valueOf(), toString()
+String => charAt(), match(), replace(), toLowerCase(), toUpperCase()
+Boolean => toString()
+
+Function call()
+---------
+The Function call() method allows us to invoke a function given a specific value for this and arguments provided individually
+
+function test() {
+    return "The function is invoked!";
+}
+test(); test.call();
+
+function printMessage() {
+    return "The age of the " + this.name + " is " + this.age;
+}
+printMessage.call({name:"kalidas",age:25});
+
+function printSum(p1, p2) {
+    return (this.num1 + this.num2 + p1 + p2);
+}
+
+printSum.call({null:10,num1:10}, 40, 32); // 87
+
+Function apply()
+-----------
+The Function apply() method in JavaScript allows us to invoke a function given a specific value for this and arguments provided as an array
+
+printSum.apply({null:10,num1:10}, [40, 32]); // 87
+
+Function bind() 
+----------
+The function bind() method in JavaScript creates a new function
+
+function greet(message) {
+    output.innerHTML = message + ', ' + this.name;
+}
+
+greet.bind({name:"kalidas"}, 'Hello') // hello, Kalidas
+
+function printVal() { 
+    output.innerHTML += "Coordinates: "+this.X + "," + this.Y + "<br>"; 
+} 
+
+printVal.bind({x:10,y:10}) // Coordinates 10,10
+
+Control flow
+--------------
+if else, while, for, for in, for of, switch
+loop Control => break, continue
+
+Currying
+----------
+currying is a functional programming technique that is used to transform a function that takes multiple arguments
+is mainly used in event handling and to avoid passing the same variable as a function argument multiple times
+
+function closures(a) {
+   return function (b) {
+      return a * b;
+   }
+}
+closures(a)(b)
+
+
+first-class function 
+------------
+First-class functions are a powerful feature of JavaScript that allows you to write more flexible and reusable code.

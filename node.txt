@@ -1,0 +1,203 @@
+server-side JavaScript runtime environment built on Chrome's V8 JavaScript engine
+It allows developers to run JavaScript code outside the web browser, typically on the server side
+
+Pros
+------
+Non-Blocking I/O
+---------
+Node.js is based on an event-driven, non-blocking I/O model, which allows it to handle multiple concurrent connections efficiently.
+This makes it well-suited for building real-time applications, such as chat applications, online gaming platforms, and streaming services
+
+Performance
+-----------
+compiles JavaScript code into native machine code for execution. This results in high-performance applications with fast response times
+
+NPM Ecosystem and Community and Support
+
+Cons
+-------
+Single-Threaded
+--------------
+Node.js is single-threaded, meaning it uses a single event loop to handle all incoming requests
+
+Callback Hell
+------------
+Asynchronous programming in Node.js is often done using callbacks
+deeply nested callback functions become difficult to manage and understand
+
+overcome the single-threaded
+-----------
+Use Worker Threads
+------------
+allows you to create and run multiple threads of execution alongside the main event loop
+
+callback
+-----------
+A callback function is called after a given task. It allows other code to be run in the meantime and prevents any blocking.
+
+advantages of using promises instead of callbacks
+-------------
+built-in error handling and Improved readability
+
+uses of node js
+---------
+Real-time chats, Internet of Things, Streaming applications, Microservices architecture
+
+modules
+----------
+modules are reusable units of code. They allow you to organize your code into smaller, manageable pieces, making it easier to 
+maintain, reuse, and share across different parts of your application.
+
+core modules => require('path')
+File modules => require('./app.js')
+
+Why is Node.js preferred for backend?
+--------------
+Node.js is very fast
+Node Package Manager
+real-time web applications, as Node.js never waits for an API to return data
+Better synchronization of code between server and client due to same code base
+
+event-driven programming mean?
+----------------
+An event-driven programming approach uses events to trigger various functions. An event can be anything, such as typing a key or clicking a mouse button
+
+Event Loop 
+------------
+Event loops handle asynchronous callbacks in Node.js. It is the foundation of the non-blocking input/output in Node.js
+
+EventEmitter
+---------------
+An Event Emitter is a Node.js module that facilitates communication between objects in a Node.js application.
+EventEmitter is a class that holds all the objects that can emit events
+
+types of API functions in Node.js
+------------
+Asynchronous non-blocking functions and Synchronous blocking functions
+
+package.json file?
+-------------
+The package.json file is the heart of a Node.js system. This file holds the metadata for a particular project.
+
+Express JS
+--------
+is a minimalist and flexible web application framework for Node.js
+Is creating server-side logic and handling HTTP requests 
+
+Routing
+--------
+It allows you to define routes to handle different HTTP requests
+GET,POST,PUT,DELETE,PATCH
+
+Error Handling and RESTful API Development
+
+streams in Node.js?
+------------
+Streams are objects that enable you to read data or write data continuously.
+
+Types => Readable (used for), Writable, Duplex (both read and write), Transform
+
+REPL ( Read Eval Print Loop) in Node.js?
+-----------
+It’s similar to a Windows console or Unix/Linux shell in which a command is entered
+Read - reads users input 
+Eval - evaluates the data structure
+Print - print the result 
+Loop - Loops above the comments
+
+buffer class in Node.js
+-------------
+Buffer class stores raw data similar to an array of integers but corresponds to a raw memory allocation outside the V8 hea
+
+piping in Node.js?
+-------------
+Piping is a mechanism used to connect the output of one stream to another stream
+
+middleware
+------------
+Middleware is a function that receives the request and response objects
+Used for, Update or modify the request and the response objects and Finish the request-response cycle
+
+types of HTTP requests?
+GET,POST,PUT,DELETE,PATCH
+
+Node.js timing features
+---------------
+setTimeout, clearTimeout
+setInterval, clearInterval
+setImmediate, clearImmediate
+
+Node.js better than other frameworks?
+----------------
+Node.js is a server-side JavaScript runtime environment built on top of the V8 JavaScript engine, the same engine that powers Google Chrome
+Node.js very fast and efficient, as well as highly scalable. 
+
+fork in node JS?
+-----------
+The Fork method in Node.js creates a new child process that runs a separate Node.js instance
+
+JavaScript Vs Node.js
+-------------
+Feature | JavaScript | Node Js
+Definition | JavaScript is a programming language | Node.js is a runtime environment
+Execution | Runs in web browsers | Runs on servers
+Platform | web | server
+Event Loop | Not applicable (applicable by web browser) | applicable 
+
+asynchronous vs synchronous 
+------------------
+Feature | asynchronous | synchronous
+Execution | without waiting for the task to complete |  waiting for each task to complete before moving on to the next one.
+Task Handling | Handles tasks that involve I/O operations | Handles tasks that are CPU-bound
+Control Flow | Uses callbacks, Promises, or async/await | Follows a linear execution flow
+Error Handling | Requires careful error handling | Errors are easier to handle
+
+primary reason for using the event-based model in Node.js?
+-----------------
+The main reason to use the event-based model in Node.js is performance.
+t Node.js can handle a large number of connections without using a lot of resources.
+
+Node run on Windows?
+---------------
+Yes, Node.js runs on Windows. Node.js is a cross-platform runtime environment
+
+access DOM in Node?
+--------------
+No, you cannot access the DOM in Node.js. DOM is a browser-specific API,
+Since Node.js does not run in a browser
+
+"non-blocking" in node.js?
+----------------
+non-blocking refers to the ability of the runtime environment to execute multiple tasks simultaneously without waiting for the completion of one task before starting the next
+
+stub in Node.js
+--------------
+stub is a function that serves as a placeholder for a more complex function. Stubs are typically used in unit testing 
+
+Libuv?
+---------
+Libuv is a critical component of Node.js, and it's what makes it possible to handle I/O operations in a non-blocking and efficient manner.
+
+LTS releases of Node.js?
+-------------
+LTS stands for Long-term support. LTS releases of Node.js are versions that are supported for an extended period, usually for 30 months from the time of release
+
+ESLint ?
+----------
+ESLint is a popular open-source tool that is used to analyze and flag errors
+
+Node.js handle the child threads?
+---------------
+Node.js handles child threads by creating separate instances of the Node.js runtime environment that can be used to execute code in parallel with the main process.
+
+JWT (JSON Web Token)
+--------------------
+It securely transmit information between two parties as a JSON object. It's commonly used for authorization 
+
+Structure
+---------
+Header => token type. signing algorithm used (e.g., HMAC SHA-256)
+Payload => user ID, username, roles, permissions, expiration time, and more.
+
+Access Token => It's used in front-end for fetching response expiry with in 7 days
+Refresh Token => It’s expiry with in 90 days and refresh token use to create anther access token
