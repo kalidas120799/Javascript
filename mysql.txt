@@ -33,8 +33,235 @@ String Data Types => CHAR(M), VARCHAR(M), TEXT(65535), BINARY, BLOB(65535)
 Date and Time Data Types => DATE, TIME, DATETIME, TIMESTAMP
 Other Data Types => ENUM(value1,value2), SET(value1,value2), BOOLEAN
 
+CHAR vs TEXT data type
+---------------
+Feature | CHAR | TEXT data type
+Max Length | up to 255 | up to 65,535(64kb)
+Storage size| fixed | Variable
+Performance | faster | slower for retrieval and sorting.
+Indexing | can be | Can't be
+
+
 integer data types
 -----------------
 TINYINT => 1 byte signed(-128 to 127), unsigned(0 to 255)
 SMALLINT => 2 byte signed( -32768 to 32767), unsigned(0 to 65535 )
 BIGINT => 8 byte signed(-9223372036854775808 to 9223372036854775807), unsigned( 0 to 18446744073709551615 )
+
+MySQL vs SQL
+------------
+SQL (Structured Query Language) is a language used for managing and manipulating relational databases.
+MySQL, on the other hand, is one of the many relational database management systems that support SQL
+
+SQL provides a standardized way to interact with databases
+MySQL is known for being fast, reliable, and easy to use
+
+SQL commands
+-------------
+DDL (Data Definition Language) => used to define, modify, and delete the structure of database objects
+CREATE, ALTER, DROP, TRUNCATE, RENAME, COMMENT
+
+DML (Data Manipulation Language) => used to manage the data within the database
+SELECT, INSERT, UPDATE, DELETE
+
+DCL (Data Control Language) => used to grant or revoke privileges and permissions to users and roles
+GRANT, REVOKE
+
+MySQL binary log
+-----------
+The MySQL binary log is a log file that records all changes to the database, such as INSERT, UPDATE, and DELETE statements, as well as DDL statements
+
+query in MySQL?
+---------
+A query in MySQL is a request for information from a database using SQL
+It typically involves selecting, inserting, updating, or deleting data from database 
+
+CREATE TABLE ExampleTable (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    varchar_col VARCHAR(255),
+    char_col CHAR(10),
+    int_col INT,
+    bigint_col BIGINT,
+    tinyint_col TINYINT,
+    smallint_col SMALLINT,
+    float_col FLOAT,
+    double_col DOUBLE,
+    decimal_col DECIMAL(10,2),
+    date_col DATE,
+    datetime_col DATETIME,
+    timestamp_col TIMESTAMP,
+    time_col TIME,
+    year_col YEAR,
+    text_col TEXT,
+    blob_col BLOB,
+    enum_col ENUM('Option1', 'Option2', 'Option3'),
+    set_col SET('Value1', 'Value2', 'Value3')
+);
+SELECT * FROM Employees WHERE Department = 'IT';
+UPDATE Employees SET Salary = Salary * 1.1 WHERE Department = 'Sales';
+DELETE FROM Employees WHERE Age > 60;
+ALTER TABLE Employees ADD COLUMN ManagerID INT after Salary;
+
+database schema?
+------------
+A database schema is the blueprint or skeleton structure that represents the logical configuration of a database
+It defines the organization and relationships between tables, as well as the columns, data types, constraints,
+indexes, and other elements that comprise the database
+
+primary key vs unique key
+----------------
+Feature | primary key | unique key
+Purpose | each record uniquely in a table |  uniqueness of values in a column
+Allowed | Only one per table | multiple key per table
+Null Values | Does not allow | Allows NULL values but only one null per column
+Relationship | repeatedly used as a foreign key | Can be used as a foreign key
+
+CREATE TABLE Employees (
+    ID INT PRIMARY KEY, // id is primary key
+    Name VARCHAR(50),
+    Email VARCHAR(100) UNIQUE, // email is unique key
+    Department VARCHAR(50)
+);
+
+composite primary key
+-----------
+A composite primary key is a combination of two or more columns that 
+uniquely identifies each row in a database table
+
+CREATE TABLE Orders (
+    OrderID INT,
+    ProductID INT,
+    Quantity INT,
+    PRIMARY KEY (OrderID, ProductID)
+);
+
+foreign key constraint?
+-------------
+A foreign key constraint is a rule, connection between two tables in a relational database
+the values in a column in one table match the values in a column in another table
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+Joins
+-------
+Joins in MySQL are used to combine rows from two or more tables based on a related column between them
+
+INNER JOIN
+----------
+Returns rows when there is at least one match in both tables
+
+SELECT * FROM table1 INNER JOIN table2 ON table1.column = table2.column;
+
+LEFT JOIN (or LEFT OUTER JOIN) 
+--------------------
+Returns all rows from the left table, and the matched rows from the right table
+If there are no matches, NULL values are used.
+
+SELECT * FROM table1 LEFT JOIN table2 ON table1.column = table2.column;
+
+RIGHT JOIN (or RIGHT OUTER JOIN)
+-----------------
+Returns all rows from the right table, and the matched rows from the left table
+If there are no matches, NULL values are used.
+
+SELECT * FROM table1 RIGHT JOIN table2 ON table1.column = table2.column;
+
+FULL JOIN (or FULL OUTER JOIN)
+--------------
+Returns rows when there is a match in one of the tables. 
+It returns all rows from both tables and NULL values for unmatched rows
+
+SELECT * FROM table1 FULL JOIN table2 ON table1.column = table2.column;
+
+cross join?
+-----------
+A CROSS JOIN in MySQL returns the Cartesian product of two tables, meaning 
+it combines each row of the first table with every row of the second table
+
+SELECT * FROM table1 CROSS JOIN table2;
+
+Null value
+-----------
+Represents the absence of a value in a column
+indicates column is missing, unknown, or undefined.
+NULL + 1 = NULL
+
+Zero value
+--------
+Represents the numeric value 0
+indicates specific numeric quantity
+0 + 1 = 1
+
+database transaction?
+-----------
+A database transaction is a logical work, that includes one or more database activities
+It is a technique for combining many database operations into a single
+
+subquery 
+----------
+A subquery, also known as a nested query, is a query nested within another query
+It's used to retrieve data based on the results of another query.
+
+SELECT * FROM Orders WHERE CustomerID IN 
+(SELECT CustomerID FROM Customers WHERE Country = 'USA');
+
+correlated subquery?
+----------
+A correlated subquery is a type of subquery that depends on the outer query for its execution
+
+SELECT FirstName, LastName
+FROM Employees e WHERE Salary > (
+    SELECT AVG(Salary)
+    FROM Employees
+    WHERE Department = e.Department
+);
+
+LIKE operator in MySQL?
+--------------
+The LIKE operator in MySQL is used to search for a specified pattern within a column.
+
+SELECT * FROM Employees WHERE FirstName LIKE 'J%';
+
+self-join in MySQL?
+----------
+A self-join in MySQL is when a table is joined with itself
+This can be useful for comparing rows within the same table
+
+SELECT e1.EmployeeID, e1.FirstName, e1.ManagerID, e2.FirstName AS ManagerName
+FROM Employees e1
+JOIN Employees e2 ON e1.ManagerID = e2.EmployeeID;
+
+stored procedure in MySQL
+-------------
+A stored procedure is a prepared SQL code that is stored in the database and can be executed multiple times
+used to execute a sequence of SQL statements on the server side
+
+call a stored procedure in MySQL?
+--------------
+Stored procedures can be called using the CALL statement
+
+advantages of using stored procedures?
+-------------
+Improved performance, business logic 
+Enhanced security by restricting direct access to tables
+
+function in mysql
+--------------
+a function is a stored program that returns a single value based on the input parameters provided.
+it's do specific operation or calculation in the SQL statements
+
+Built-in Functions => CONCAT, ROUND, DATE_FORMAT, LENGTH
+User-defined Functions => function created by users
+
+stored procedures vs functions 
+--------------
+Feature | stored procedures | functions 
+Invocation | using the CALL statement | SQL queries or other expressions
+Return Value | zero or more output | a single value
+Usage | used for executing a sequence of SQL | used for calculations
+Error Handling | can handle error | Limited error handling 
