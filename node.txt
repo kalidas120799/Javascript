@@ -22,8 +22,17 @@ Node.js is single-threaded, meaning it uses a single event loop to handle all in
 
 Callback Hell
 ------------
-Asynchronous programming in Node.js is often done using callbacks
-deeply nested callback functions become difficult to manage and understand
+multiple nested callback functions are used to handle asynchronous operations
+
+asyncFunction1(function(result1) {
+    asyncFunction2(result1, function(result2) {
+        asyncFunction3(result2, function(result3) {
+            asyncFunction4(result3, function(result4) {
+                // Do something with result4
+            });
+        });
+    });
+});
 
 overcome the single-threaded
 -----------
@@ -33,7 +42,8 @@ allows you to create and run multiple threads of execution alongside the main ev
 
 callback
 -----------
-A callback function is called after a given task. It allows other code to be run in the meantime and prevents any blocking.
+A callback function in JavaScript is a function that is passed as an argument to 
+another function and is executed after some asynchronous operation.
 
 advantages of using promises instead of callbacks
 -------------
@@ -155,7 +165,7 @@ Error Handling | Requires careful error handling | Errors are easier to handle
 primary reason for using the event-based model in Node.js?
 -----------------
 The main reason to use the event-based model in Node.js is performance.
-t Node.js can handle a large number of connections without using a lot of resources.
+Node.js can handle a large number of connections without using a lot of resources.
 
 Node run on Windows?
 ---------------

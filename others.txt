@@ -51,7 +51,7 @@ MySQL vs Elasticsearch
 -----------------
 Feature | MySQL | Elasticsearch
 Data Storage | Relational database storing tables in rows and columns | Distributed search engine storing  JSON documents
-Query | SQL | DSL
+Query | SQL | DSL (document query language)
 Data Model | Relational (rows and columns) | NoSQL (JSON structure)
 Indexing | supports | build in
 Scalability | Vertical (scaling server) | Horizontal (adding more node)
@@ -90,3 +90,8 @@ Main Features | Component-based architecture, Virtual DOM, JSX | Asynchronous I/
 Execution | browser | server
 Frameworks | next.js | express.js
 HTTP Server | not handle HTTP req | create HTTP req
+
+webpack
+-----------
+Webpack is a free and open-source module bundler primarily for JavaScript applications. It takes your project's code (modules) and their dependencies, 
+and transforms them into optimized bundles that can be easily loaded by a web browser. This improves the performance and organization of your web application

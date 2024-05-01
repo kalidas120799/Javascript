@@ -125,8 +125,13 @@ MouseEvent, InputEvent, KeyboardEvent, AnimationEvent, ClipboardEvent, DragEvent
 
 Asynchronous Javascript
 -----------------
-Asynchronous JavaScript refers to the ability of JavaScript to execute code non-sequentially, allowing tasks to be performed concurrently without blocking the execution of other code
-Used for etching data from servers, reading files, or waiting for user input
+Code can continue executing without waiting for long-running operations (like fetching data) to finish. 
+Think of a waiter taking multiple orders and handling them independently
+
+synchronous Javascript
+-----------
+Code executes line by line, waiting for each line to finish before moving to the next. 
+Imagine a single waiter handling one order at a time
 
 Callbacks
 ----------
@@ -152,7 +157,7 @@ asyncFunction1(function(result1) {
 
 Promises
 ------------
-Promises are objects that represent the eventual completion or failure of an asynchronous operation and its resulting value
+Promises are objects that represent the completion or failure of an asynchronous operation and its resulting value
 They provide a cleaner and more structured way to handle asynchronous code compared to callbacks.
 
 const fetchData = new Promise((resolve, reject) => {

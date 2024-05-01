@@ -45,7 +45,7 @@ Functional components are simpler and more lightweight compared to class compone
 Class Components
 ----------
 These are ES6 classes that extend the React.Component class
-lass components have additional features such as state management and lifecycle methods
+class components have additional features such as state management and lifecycle methods
 
 Higher-Order Components
 ---------------
@@ -144,7 +144,7 @@ const ButtonElement = React.forwardRef((props, ref) => (
 
 React Fiber?
 -------------
-Fiber is the new reimplementation of core algorithm in React v16
+Fiber is the new re implementation of core algorithm in React v16
 The goal of React Fiber is to increase its suitability for areas like animation, layout, gestures, ability to pause, abort
 
 Controlled Components

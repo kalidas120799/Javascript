@@ -30,7 +30,8 @@ Is commonly used for layout and organization purposes
 
 semantic HTML?
 -----------
-is the practice of using HTML elements that accurately describe the meaning or purpose of the content they contain
+Semantic HTML refers to using HTML elements that convey the meaning and structure of your web content
+<header>, <nav>, <section>, <article>, <aside>, <footer>
 
 CSS box-sizing property? 
 --------------
