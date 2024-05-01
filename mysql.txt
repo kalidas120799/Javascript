@@ -76,6 +76,27 @@ query in MySQL?
 A query in MySQL is a request for information from a database using SQL
 It typically involves selecting, inserting, updating, or deleting data from database 
 
+CREATE TABLE ExampleTable (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    varchar_col VARCHAR(255),
+    char_col CHAR(10),
+    int_col INT,
+    bigint_col BIGINT,
+    tinyint_col TINYINT,
+    smallint_col SMALLINT,
+    float_col FLOAT,
+    double_col DOUBLE,
+    decimal_col DECIMAL(10,2),
+    date_col DATE,
+    datetime_col DATETIME,
+    timestamp_col TIMESTAMP,
+    time_col TIME,
+    year_col YEAR,
+    text_col TEXT,
+    blob_col BLOB,
+    enum_col ENUM('Option1', 'Option2', 'Option3'),
+    set_col SET('Value1', 'Value2', 'Value3')
+);
 SELECT * FROM Employees WHERE Department = 'IT';
 UPDATE Employees SET Salary = Salary * 1.1 WHERE Department = 'Sales';
 DELETE FROM Employees WHERE Age > 60;
@@ -188,3 +209,59 @@ It's used to retrieve data based on the results of another query.
 
 SELECT * FROM Orders WHERE CustomerID IN 
 (SELECT CustomerID FROM Customers WHERE Country = 'USA');
+
+correlated subquery?
+----------
+A correlated subquery is a type of subquery that depends on the outer query for its execution
+
+SELECT FirstName, LastName
+FROM Employees e WHERE Salary > (
+    SELECT AVG(Salary)
+    FROM Employees
+    WHERE Department = e.Department
+);
+
+LIKE operator in MySQL?
+--------------
+The LIKE operator in MySQL is used to search for a specified pattern within a column.
+
+SELECT * FROM Employees WHERE FirstName LIKE 'J%';
+
+self-join in MySQL?
+----------
+A self-join in MySQL is when a table is joined with itself
+This can be useful for comparing rows within the same table
+
+SELECT e1.EmployeeID, e1.FirstName, e1.ManagerID, e2.FirstName AS ManagerName
+FROM Employees e1
+JOIN Employees e2 ON e1.ManagerID = e2.EmployeeID;
+
+stored procedure in MySQL
+-------------
+A stored procedure is a prepared SQL code that is stored in the database and can be executed multiple times
+used to execute a sequence of SQL statements on the server side
+
+call a stored procedure in MySQL?
+--------------
+Stored procedures can be called using the CALL statement
+
+advantages of using stored procedures?
+-------------
+Improved performance, business logic 
+Enhanced security by restricting direct access to tables
+
+function in mysql
+--------------
+a function is a stored program that returns a single value based on the input parameters provided.
+it's do specific operation or calculation in the SQL statements
+
+Built-in Functions => CONCAT, ROUND, DATE_FORMAT, LENGTH
+User-defined Functions => function created by users
+
+stored procedures vs functions 
+--------------
+Feature | stored procedures | functions 
+Invocation | using the CALL statement | SQL queries or other expressions
+Return Value | zero or more output | a single value
+Usage | used for executing a sequence of SQL | used for calculations
+Error Handling | can handle error | Limited error handling 
