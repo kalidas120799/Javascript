@@ -32,7 +32,7 @@ Arguments are the values passed to a function when it is called
 function greet(name) { // 'name' is a parameter
     return "Hello, " + name + "!";
 }
-greet("John"); 
+greet("John"); // John is a Arguments
 
 Arrow Functions
 -----------

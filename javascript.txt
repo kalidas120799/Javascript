@@ -1,6 +1,8 @@
 JavaScript
 ------------
-is a widely used programming language primarily known for its role in web development
+is a widely used programming language primarily known for its role in web development.
+While it is most well-known as the scripting language for Web pages
+JavaScript is an asynchronous and concurrent programming language
 
 Pros
 ---------
@@ -20,7 +22,8 @@ Eg : var, let, function
 
 Javascript Variables
 -------------
-A variable is a “named storage” for data.
+Variables are Containers for Storing Data   
+var, let, const
 
 var vs let vs const
 -------------------
