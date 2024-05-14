@@ -72,12 +72,12 @@ for (const [index, item] of [1, 3, 4, 5].entries()) { console.log(index, item) }
 
 // break and continue
 for (const item of [1, 2, 3, 4]) {
-    if (item === 1) continue; 
+    if (item === 1) continue;
     console.log(item) // 2,3
-    if(item===3) break
+    if (item === 3) break
 }
 
-const arr=[]
+const arr = []
 for (let i = 0; i < arr.length; i++) {
     console.log(arr[i], arr[i + 1]);
     i++
@@ -90,18 +90,30 @@ console.log(1994 % 10) // 4
 
 // sort using loop
 function sort(data) {
-    let arr = [...data]
-    for (var i = 0; i < arr.length; i++) {
-        if (arr[i] > arr[i + 1]) {
-            let temp = arr[i];
-            arr[i] = arr[i + 1];
-            arr[i + 1] = temp;
-            i = -1
+    for (var i = 0; i < data.length; i++) {
+        if (data[i] > data[i + 1]) {
+            let temp = data[i];
+            data[i] = data[i + 1]
+            data[i + 1] = temp;
+            i = -1;
         }
     }
-    return arr;
+    return data;
 }
 
-console.log(sort([0, 1, 4, 3, 2, 4]));
+console.log(sort([10, 1, 5, 2, 6, 8]));
+console.log(sort(["HTML", "CSS", "JS", "Angular JS", "React", "Python"]))
 
 console.log([0, 1, 4, 3, 2, 4].join("")); // "014324"
+
+function removeDuplicate(nums) {
+    if (nums.length === 0) return [];
+    const set = new Set();
+
+    for (var i = 0; i < nums.length; i++) {
+        if (!set.has(nums[i])) set.add(nums[i])
+    }
+    return Array.from(set.values());
+}
+
+console.log(removeDuplicate([4, 3, 2, 4, 3, 1, 0, 2]))
