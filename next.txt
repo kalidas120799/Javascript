@@ -1,0 +1,44 @@
+Next JS?
+-------
+Next.js is a flexible react Framework to create fast web app and an open-source framework
+
+file name should be small name inside the page folder
+
+Pre-rendering
+-------------
+Next.js offers Server-side Rendering (SSR) and Static Site Generation (SSG) which can significantly improve website loading times
+content is pre-rendered on the server before being sent to the browser
+
+initial load (pre rendered HTML) -> JS Load -> Hydration (components initialized)
+
+SEO
+-----
+search engines can easily crawl and index pre-rendered content
+
+Out-of-the-box features
+---------
+Next.js includes features like routing, data fetching, and image optimization built-in
+
+Faster development
+-----------
+for faster development use automatic code-splitting and built-in functionalities
+
+React JS vs Next.js
+--------------
+Feature | React JS | Next.js
+Framework | No | Yes (built on React)
+Rendering | Client-side Rendering (CSR) | Server-side Rendering (SSR), Static Site Generation (SSG)
+SEO | SEO support is limited | Improved SEO due to pre-rendering
+Data Fetching / routing | additional libraries | built in 
+Use Cases | Complex web app | focused on SEO website
+
+Static Site Generation
+--------------
+(SSG) is a way to pre-render your website's pages at build time. 
+This creates lightning-fast load times and improved SEO
+
+
+"use client"
+---------
+the use client directive is used to define a boundary between Server Components and Client Components
+tells Next.js it's a client component
