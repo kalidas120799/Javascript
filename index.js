@@ -117,3 +117,19 @@ function removeDuplicate(nums) {
 }
 
 console.log(removeDuplicate([4, 3, 2, 4, 3, 1, 0, 2]))
+
+function find(val) {
+    for (let i = 1; i <= val; i++) {
+
+        let k = i * (i + 1) / 2;
+        let n = (val - i + 1) / 2;
+        let l = n * (i + val);
+
+        if (k === l) {
+            return i
+        }
+    }
+}
+
+console.log(find(49)) // 35
+console.log(find(8)) // 6
