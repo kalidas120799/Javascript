@@ -102,6 +102,7 @@ function sort(data) {
 }
 
 console.log(sort([10, 1, 5, 2, 6, 8]));
+console.log(sort([100, 4, 200, 1, 3, 2]));
 console.log(sort(["HTML", "CSS", "JS", "Angular JS", "React", "Python"]))
 
 console.log([0, 1, 4, 3, 2, 4].join("")); // "014324"
