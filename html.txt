@@ -33,6 +33,11 @@ semantic HTML?
 Semantic HTML refers to using HTML elements that convey the meaning and structure of your web content
 <header>, <nav>, <section>, <article>, <aside>, <footer>
 
+CSS (Cascading Style Sheets) 
+-----------
+is a simply designed language intended to simplify the process of making web pages presentable.
+CSS saves time, Easy Maintenance, Search Engines, Offline Browsing
+
 CSS box-sizing property? 
 --------------
 is used to control how the width and height of an element are calculated
@@ -113,3 +118,55 @@ an element is a fundamental building block of a web page,
 representing different types of content or functionality. Each element is defined by an opening tag, content, and a closing tag
 
 Eg : <div></div>
+
+CSS frameworks 
+----------
+Bootstrap, Semantic UI, Tailwind CSS, material ui
+
+Syntax of CSS
+---------
+selector { 
+    Property: value; 
+}
+
+CSS Selectors?
+--------------
+CSS Selectors are used to selecting HTML elements based on their element name, id, attributes
+It can select one or more elements simultaneously
+
+margin and padding
+------------
+Margin is used to create space around elements
+padding is used to create space around elements inside the border
+can set the margin property to auto
+cannot set the padding property to auto.
+
+CSS box model 
+------------
+is a container that contains multiple properties including borders, margin, padding
+used to create the design and layout of web pages
+
+display: “none” and display: “hidden”
+-------------
+display: “none” property is used to specify whether an element is exist or not on the website
+display ; 'hidden' property is used to specify whether an element is visible or not in a web document
+
+position property
+---------
+Fixed, Static, Relative, Absolute, Sticky
+
+CSS overflow
+-------
+visible, hidden, scroll, auto
+
+pseudo-classes in CSS?
+-------------
+It can be combined with a CSS selector to add an effect to existing elements
+
+selector: hover, active, focus, visited
+
+pseudo-elements in CSS?
+--------
+is used to add style to specified parts of an element.
+
+selector::before, after, first-letter, first-line

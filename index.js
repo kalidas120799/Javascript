@@ -3,6 +3,17 @@ var a = 10;
 let b = 5;
 const sum = a + b;
 
+console.log(typeof "123") // string
+console.log(typeof 32) // number
+console.log(typeof true) // boolean
+console.log(typeof NaN) // number
+console.log(typeof undefined) // undefined
+console.log(typeof null) // object
+console.log(typeof []) // object
+console.log(typeof {}) // object
+console.log(typeof new Date()) // object
+console.log(typeof new RegExp()) // object
+
 // hosting
 // is a concept the variables and functions even before initializing/assigning value without getting errors
 
@@ -134,3 +145,36 @@ function find(val) {
 
 console.log(find(49)) // 35
 console.log(find(8)) // 6
+
+function isPalindrome(data) {
+    data = data.toString().toLowerCase().split(" ").join("")
+    data = data.toString().match(/[a-zA-Z0-9]/g).join("");
+    console.log(data)
+    let start = 0;
+    let end = data.length - 1; 
+    while (start < end) {
+
+        if (typeof data[start] === 'string' && typeof data[end] === 'string') {
+            if (data[start] != data[end]) return false;
+            else {
+                start++;
+                end--
+            }
+        } else if (typeof data[start] != 'string' && typeof data[end] != 'string') {
+            start++;
+            end--
+        } else if (typeof data[start] === 'string' && typeof data[end] != 'string') {
+            end--
+        } else if (typeof data[start] != 'string' && typeof data[end] === 'string') {
+            start++;
+        }
+    }
+
+    return true
+
+}
+
+// console.log(isPalindrome("22/02/2022"))
+// console.log(isPalindrome("madam"))
+console.log(isPalindrome("A man, a plan, a canal: Panama"))
+

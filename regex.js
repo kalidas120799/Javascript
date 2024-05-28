@@ -1,6 +1,8 @@
 const str = "# $ ^ * & Lorem \0 Ipsum is simply duMmy text 76576";
 const str1 = "Ippsum is simply duMmy text";
 
+console.log('12/a0-iuuURT@'.match(/[a-zA-Z0-9]/g).join(""))
+
 // global - /g
 console.log(str.match(/i/g), str.match(/z/g)) // [i,i] , null
 

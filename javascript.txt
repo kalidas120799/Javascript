@@ -189,3 +189,14 @@ async function fetchData() {
         console.error(error);
     }
 }
+
+Debouncing
+----------
+Debouncing in JavaScript is a technique to optimize function calls by ensuring they only execute after a certain amount of inactivity.
+It's useful for preventing excessive calls, especially during rapid user interactions like typing or scrolling.
+
+ES6 (ECMAScript 2015)
+-------
+It introduced many new features that improve code readability, maintainability
+
+Arrow Functions, Classes, Modules, Destructuring, Template Literals
