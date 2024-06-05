@@ -151,7 +151,7 @@ function isPalindrome(data) {
     data = data.toString().match(/[a-zA-Z0-9]/g).join("");
     console.log(data)
     let start = 0;
-    let end = data.length - 1; 
+    let end = data.length - 1;
     while (start < end) {
 
         if (typeof data[start] === 'string' && typeof data[end] === 'string') {
@@ -178,3 +178,12 @@ function isPalindrome(data) {
 // console.log(isPalindrome("madam"))
 console.log(isPalindrome("A man, a plan, a canal: Panama"))
 
+// hosting
+var a = 2
+function abc() {
+    console.log("a : ", a); // undefined
+    var a = 20;
+    console.log("a : ", a); // 20
+}
+abc()
+console.log("a : ", a) // 2

@@ -59,12 +59,6 @@ function sumOfNoRec(n) {
 
 console.log(sumOfNoRec(10)) // 5
 
-function pow(base, n) {
-    let result = 1;
-}
-
-console.log(pow(2, 4))
-
 function powRec(base, n) {
     if (n === 0) return 1;
     return base * powRec(base, (n - 1))
@@ -84,3 +78,16 @@ function isPowerRec(base, num) {
 
 console.log(isPowerRec(2, 16)) // true 2^4 16
 console.log(isPowerRec(3, 3)) // true 
+
+function flat(item) {
+    let result = [];
+    if (Array.isArray(item)) {
+        for (var i = 0; i < item.length; i++) {
+            result = result.concat(flat(item[i]))
+        }
+    } else {
+        result.push(item)
+    }
+    return result
+}
+console.log(flat([1, 2, 3, [4, [5, [0], 6]], 7, [8]]))
