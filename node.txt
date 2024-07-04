@@ -68,18 +68,14 @@ Node Package Manager
 real-time web applications, as Node.js never waits for an API to return data
 Better synchronization of code between server and client due to same code base
 
-event-driven programming mean?
-----------------
-An event-driven programming approach uses events to trigger various functions. An event can be anything, such as typing a key or clicking a mouse button
-
 Event Loop 
 ------------
 Event loops handle asynchronous callbacks in Node.js. It is the foundation of the non-blocking input/output in Node.js
 
 EventEmitter
 ---------------
-An Event Emitter is a Node.js module that facilitates communication between objects in a Node.js application.
-EventEmitter is a class that holds all the objects that can emit events
+Node.js uses events module to create and handle custom events
+The EventEmitter class can be used to create and handle custom events module
 
 types of API functions in Node.js
 ------------
@@ -176,17 +172,9 @@ access DOM in Node?
 No, you cannot access the DOM in Node.js. DOM is a browser-specific API,
 Since Node.js does not run in a browser
 
-"non-blocking" in node.js?
-----------------
-non-blocking refers to the ability of the runtime environment to execute multiple tasks simultaneously without waiting for the completion of one task before starting the next
-
 stub in Node.js
 --------------
 stub is a function that serves as a placeholder for a more complex function. Stubs are typically used in unit testing 
-
-Libuv?
----------
-Libuv is a critical component of Node.js, and it's what makes it possible to handle I/O operations in a non-blocking and efficient manner.
 
 LTS releases of Node.js?
 -------------
@@ -199,18 +187,6 @@ ESLint is a popular open-source tool that is used to analyze and flag errors
 Node.js handle the child threads?
 ---------------
 Node.js handles child threads by creating separate instances of the Node.js runtime environment that can be used to execute code in parallel with the main process.
-
-JWT (JSON Web Token)
---------------------
-It securely transmit information between two parties as a JSON object. It's commonly used for authorization 
-
-Structure
----------
-Header => token type. signing algorithm used (e.g., HMAC SHA-256)
-Payload => user ID, username, roles, permissions, expiration time, and more.
-
-Access Token => It's used in front-end for fetching response expiry with in 7 days
-Refresh Token => It’s expiry with in 90 days and refresh token use to create anther access token
 
 microservices
 ----------
