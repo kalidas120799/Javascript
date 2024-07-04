@@ -1,0 +1,12 @@
+old => waterfall methodlogy
+software development life cycle (SDLC)
+
+planning
+requirement
+designing or architech
+development
+ frontend
+ backend
+testing
+deployment
+feedback

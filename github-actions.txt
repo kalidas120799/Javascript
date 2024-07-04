@@ -1,0 +1,88 @@
+continuous integration (CI) and continuous deployment (CD)
+
+GitHub Actions?
+----------
+GitHub Actions enables users to automate various GitHub events, such as cloning a repository, generating Docker images, and testing scripts
+Developers use it to automate workflows across issues, pull requests. This means that users can build, test, and deploy code
+
+How do GitHub Actions work?
+------------
+GitHub Actions uses YAML files to define workflows. These YAML files are stored in a .github/workflows
+Each workflow consists of one or more jobs, and each job consists of one or more steps.
+
+benefits to using GitHub Actions
+-------------------
+Simplified workflows, Supports a wide range of platforms and languages, Secure, Cost-effective and  Easy to get started
+
+File path : .github/workflows/app-test-action.yml
+
+name: Build and Test the app
+on:
+  push:
+    branches: [master, stage]
+  pull_request:
+    branches: [master, stage]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x] 
+ 
+    steps:
+      - uses: actions/checkout@v3
+ 
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+ 
+      - name: Install dependencies
+        run: npm install
+ 
+      - name: Run tests
+        run: npm run test
+
+----------------------------
+Trigger (on) :
+-----------
+Specifies when the workflow should be executed
+Trigger on a push or pull request
+
+Steps:
+--------
+Specify the individual tasks and run sequentially
+
+Jobs :
+---------
+A workflow must have at least 1 job and can consist of multiple jobs that work together sequentially or in parallel.
+Each job is a series of steps that runs under the same runner (virtual environment)
+
+Workflow :
+---------
+The workflow is an automated procedure that you add to your repository.
+They are made up of one or more jobs and can be scheduled or triggered by an event
+
+Runners :
+---------
+A runner is a server that has the GitHub Action Runner application installed
+two types of runners =>  hosted and self-hosted
+Hosted runners are provided by GitHub and run on virtual machines in the cloud
+Self-hosted runners are machines that you set up and manage yourself.
+
+Actions
+--------
+Actions are standalone commands that are combined into steps to create a job
+
+continuous deployment (CD)
+-----------------
+big bang deployment : Normal deployment
+Rolling deployment : Step by step rollout the new changes like country wise
+Blue green deployment : Blue is live server and green is dev server after everythink okay users redirect to green
+Canery deployment : beta Concept to specific region
+Feature taggle : taggle button use to enble new feature in to the application
+
+best deployment Concept is Blue green deployment

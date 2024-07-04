@@ -1,0 +1,85 @@
+Amazon Web Services (aws)
+-------------
+EC2
+-----
+EC2 stands for elastic compute cloud
+create virtual machines in aws cloud
+for hosting websites and server management features such as storage, port & security
+
+RDS
+----
+Amazon relation database
+create dedicated database instances
+can suport mutiple database engines like mySQl, postgresSQL
+
+S3
+-----
+Simple storage Service
+3 refers version of storage Service
+It offers a highly secure storage Service
+Data are able to stored location (data center) base
+
+cloud front
+------------
+it workes as a global content delivey network (CDN) service
+helps to improve website speed.
+
+A CDN stores cached copies of your website's content across a network of servers in various 
+geographical locations. When a user requests your website, the CDN delivers the content from
+the server closest to them, significantly reducing travel time and improving load speed.
+
+VPN 
+----
+virtual private network
+creates a secure connection over the internet to protect data exchanges between a user and the network
+
+VPC
+-----
+virtual private cloud
+prevent information security risk
+offers a private cloud environment
+
+SNS
+------
+simple notification service
+can send notification to users on any platform
+easy integration with application like node js & python
+
+elastic beanstalk
+--------------
+made for developer
+it automates the setup, configuration
+handles deployment details like load balancing, autoscaling & app health monitoring
+
+Lambda
+---------
+Is a event driven, serverless computing platform
+Can store wide spectrum of code like python, node js, java & go
+allows you to add custom logic to AWS resources such as S3 and Amazon DynamoDB tables
+
+IAM 
+------
+identify and acess management
+enables you to manage access to aws services & resources securely
+You can create & manage AWS users and group, and use permissions to allow and deny their access to aws resources
+
+Route 53
+----------
+is a highly available and scalable cloud DNS service
+It is designed for developers to route the end users to Internet applications by translating human-readable names
+
+ACM
+-------
+AWS Certificate Manager
+provide SSL certificates that protect your AWS websites and applications
+
+SSL
+------
+Secure Sockets Layer
+is a protocol that provides security to confidential data following the encryption process over the internet
+to provide data privacy, secure connection between the server and the browser
+
+ELB
+-------
+Elastic Load Balancing
+automatically distributes incoming application traffic across multiple targets and virtual appliances

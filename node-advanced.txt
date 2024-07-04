@@ -1,0 +1,234 @@
+What is the Event Loop?
+-------------
+The event loop allows Node to perform non-blocking I/O operations
+is a single-threaded mechanism
+
+Blocking and non-blocking IO
+-------------
+A blocking call is where the OS decides that it needs to wait for a certain 
+operation to complete before allowing the program to continue execution
+
+non-blocking calls (also known as asynchronous operations) don’t block the thread until they finish their work
+
+single-threaded
+---------------
+is a Architecture
+Node.js is single-threaded, meaning it uses a single event loop to handle all incoming requests
+
+Event-Driven
+--------------
+In Node.js, the event-driven model allows developers to write non-blocking, asynchronous code that responds to events as they occur, 
+without waiting for blocking operations to complete
+
+V8 engine
+-----------
+Node.js is a runtime environment
+The V8 engine is a crucial part of NodeJS because it’s the component responsible for executing JavaScript code
+
+Role of V8 engine
+----------
+Executing JavaScript, Performance Optimization, Memory Management
+Supporting Modern JavaScript Features
+
+V8 engine : [heap memory + call stack]
+
+heap memory
+---------
+The heap is where Node. js objects are stored. The garbage collector is responsible for freeing heap memory 
+that is no longer needed by the program
+
+Call Stack
+------------
+JavaScript uses a Call Stack to track the functions in a program
+The call stack works on the Last In, First Out (LIFO) principle
+
+Libuv
+-------
+libuv is a C library originally written for Node.js to handle non-blocking I/O (asynchronous) operations
+
+Call queue
+--------
+A queue is a data structure that follows the First In First Out (FIFO) principle
+
+execution order
+--------------
+micro task [nextTick + promise] queue:
+These are tiny and short duration tasks that are scheduled to run
+nextTick queue : asynchronous operation is completed before other asynchronous operations begin
+promise queue: handle promise callback
+timer queue: handle setTimeout/setInterval callback
+I/O queue : handle external resouce like read and write data (FS)
+check queue : before processing end it’s check queue is empty
+close queue : If queue is empty stop or move on to other task
+
+event loop demo
+------------
+console.log('start');
+function run(){
+console.log('log 1');
+process.nextTick(()=>console.log("nextTick"))
+console.log('log 2');
+Promise.resolve().then(()=>console.log("Promise"))
+console.log('log 3');
+setTimeout(function() {console.log("setTimeout")}, 1);
+console.log('log 4');
+}
+run();
+console.log('end');
+--------------------------------
+console.log('start');
+function run(){
+setTimeout(function() {console.log("setTimeout")}, 1);
+console.log('log 1');
+Promise.resolve().then(()=>console.log("Promise"))
+console.log('log 2');
+console.log('log 3');
+console.log('log 4');
+process.nextTick(()=>console.log("nextTick"))
+}
+run();
+console.log('end');
+
+Output:
+--------
+log 1
+log 2
+log 3
+log 4
+nextTick
+Promise
+setTimeout
+
+demo 
+------
+console.log('start');
+async function run(){
+setTimeout(function() {console.log("setTimeout")}, 1);
+console.log('log 1');
+await Promise.resolve().then(()=>console.log("Promise"))
+console.log('log 2');
+console.log('log 3');
+console.log('log 4');
+process.nextTick(()=>console.log("nextTick"))
+}
+run();
+console.log('end');
+
+Output :
+---------
+start
+log 1
+end
+Promise
+log 2
+log 3
+log 4
+nextTick
+setTimeout
+
+Common.js Modules (.js/.cjs):
+----------
+The older, default module system is called Common.js
+const fs = require("fs");
+module.exports = {};
+
+ES Modules(.mjs)
+-------------
+The ES module system is the more modern
+need to add line "type": "module" in package.json
+import fs from "fs";
+export function data(){}
+
+File System
+-----------
+var fs = require('fs');
+
+Read :
+---------
+fs.readFile('demofile1.html', function(err, data) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(data);
+    return res.end();
+});
+
+Create :
+-------------
+fs.appendFile('mynewfile1.txt', 'Hello content!', function (err) {
+  if (err) throw err;
+  console.log('Saved!');
+});
+fs.open('mynewfile2.txt', 'w', function (err, file) {
+  if (err) throw err;
+  console.log('Saved!');
+});
+fs.writeFile('mynewfile3.txt', 'Hello content!', function (err) {
+  if (err) throw err;
+  console.log('Saved!');
+});
+
+Update :
+-------------
+fs.appendFile('mynewfile1.txt', ' This is my text.', function (err) {
+  if (err) throw err;
+  console.log('Updated!');
+});
+fs.writeFile('mynewfile3.txt', 'This is my text', function (err) {
+  if (err) throw err;
+  console.log('Replaced!');
+});
+
+Delete :
+-----------
+fs.unlink('mynewfile2.txt', function (err) {
+  if (err) throw err;
+  console.log('File deleted!');
+});
+
+Rename :
+---------
+fs.rename('mynewfile1.txt', 'myrenamedfile.txt', function (err) {
+  if (err) throw err;
+  console.log('File Renamed!');
+});
+
+JSON Web Token (JWT ):
+--------
+JWT authorization is a stateless mechanism for authorization that eliminates 
+the need for sessions and cookies.
+
+login -> stored user session id in server -> send session id as cookies
+login -> create JWT token -> send to client and stored
+
+Structure
+---------
+Header => token type (JWT), algorithm (e.g., HMAC SHA-256)
+Payload => data { user ID, username, roles, permissions, expiration time, and more}
+signature => [base64UrlEncode(header) + '.' + base64UrlEncode(Payload), 256 bit secret code]
+
+Access Token => It's used in front-end for fetching response expiry with in 7 days
+Refresh Token => It’s expiry with in 90 days and refresh token use to create anther access token
+
+Algorithms
+----------
+HMAC (Hash based message Authentication Code):
+---------------
+Issuer and verifier use same secret key
+HS[256/384,512]
+
+RSA (Rivest shamir adelman):
+----------------
+Use private and public key
+private key for Issuer and public key for verifier
+RS[256/384,512]
+
+ECDSA (Elliptic Curve Digital signature Algorithm):
+-----------------
+Use private and public key
+For key generation use Elliptic Curve
+P[256/384,512]
+
+jwt.sign({uid:1,
+exp: Math.floor(Date.now() / 1000) + (60 * 60) // iat:  Math.floor(Date.now() / 1000) + (60 * 60) // 1h
+},SECRET_KEY, { algorithm : 'RS256' ,expiresIn: '1h' }); // HS256 default algorithm
+
+jwt.verify(token, cert, { algorithms: ['RS256'] });
